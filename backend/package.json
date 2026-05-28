@@ -19,10 +19,10 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "inngest": "^4.4.0",
+    "inngest": "^3.54.2",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.23.1",
-    "stream-chat": "^9.44.0",
+    "stream-chat": "^9.24.0",
     "vci_project": "file:.."
   },
   "devDependencies": {
