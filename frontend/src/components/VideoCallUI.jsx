@@ -17,7 +17,7 @@ import {
 } from "stream-chat-react";
 
 import "@stream-io/video-react-sdk/dist/css/styles.css";
-import "stream-chat-react/dist/css/index.css";
+import "stream-chat-react/dist/css/v2/index.css";
 
 function VideoCallUI({ chatClient, channel }) {
   const navigate = useNavigate();
