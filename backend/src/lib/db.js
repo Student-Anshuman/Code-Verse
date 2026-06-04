@@ -1,6 +1,9 @@
+import dns from "dns";
 import mongoose from "mongoose";
-
 import { ENV } from "./env.js";
+
+// Set the DNS server to use for resolving hostnames
+dns.setServers(["8.8.8.8"]);
 
 export const connectDB = async () => {
   try {

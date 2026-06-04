@@ -1,5 +1,5 @@
 {
-  "name": "vci_project",
+  "name": "Code-Verse",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000V\u0000C\u0000I\u0000_\u0000P\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000\r\u0000 \u0000",
   "main": "index.js",
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Student-Anshuman/VCI_Project.git"
+    "url": "git+https://github.com/Student-Anshuman/Code-Verse.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Student-Anshuman/VCI_Project/issues"
+    "url": "https://github.com/Student-Anshuman/Code-Verse/issues"
   },
-  "homepage": "https://github.com/Student-Anshuman/VCI_Project#readme"
+  "homepage": "https://github.com/Student-Anshuman/Code-Verse#readme"
 }
