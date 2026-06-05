@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { ENV } from "./env.js";
 
 // Set the DNS server to use for resolving hostnames
-dns.setServers(["8.8.8.8"]);
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 export const connectDB = async () => {
   try {
