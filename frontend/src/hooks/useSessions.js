@@ -4,6 +4,7 @@ import { sessionApi } from "../api/sessions";
 
 export const useCreateSession = () => {
   const result = useMutation({
+    
     mutationKey: ["createSession"],
     mutationFn: sessionApi.createSession,
     onSuccess: () => toast.success("Session created successfully!"),
