@@ -10,6 +10,9 @@ import {
 } from "../controllers/sessionController.js";
 
 const router = express.Router();
+router.get("/test", (req, res) => {
+  res.json({ message: "working" });
+});
 
 router.post("/", protectRoute, createSession);
 router.get("/active", protectRoute, getActiveSessions);
