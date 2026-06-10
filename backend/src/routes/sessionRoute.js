@@ -15,8 +15,8 @@ router.get("/test", (req, res) => {
 });
 
 router.post("/", protectRoute, createSession);
-router.get("/active", getActiveSessions);
-router.get("/my-recent", getMyRecentSessions);
+router.get("/active", protectRoute, getActiveSessions);
+router.get("/my-recent", protectRoute, getMyRecentSessions);
 
 router.get("/:id", getSessionById);
 router.post("/:id/join", protectRoute, joinSession);
