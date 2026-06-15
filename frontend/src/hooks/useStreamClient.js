@@ -14,6 +14,7 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
   useEffect(() => {
     let videoCall = null;
     let chatClientInstance = null;
+    console.log("useStreamClient - session:", session);
 
     const initCall = async () => {
       if (!session?.callId) return;
