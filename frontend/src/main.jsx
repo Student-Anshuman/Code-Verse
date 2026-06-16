@@ -17,7 +17,7 @@ if (!PUBLISHABLE_KEY) {
 // Replace 'your-frontend-name.onrender.com' with your actual Render frontend URL
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://your-frontend-name.onrender.com",
+  "https://code-verse-front12.onrender.com",
 ];
 
 const queryClient = new QueryClient();
