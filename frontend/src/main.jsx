@@ -13,13 +13,23 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Clerk Publishable Key");
 }
 
+// 🌐 ALLOWED ORIGINS FOR CLERK
+// Replace 'your-frontend-name.onrender.com' with your actual Render frontend URL
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://your-frontend-name.onrender.com",
+];
+
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+        <ClerkProvider
+          publishableKey={PUBLISHABLE_KEY}
+          allowedRedirectOrigins={allowedOrigins} // 👈 Added this prop
+        >
           <App />
         </ClerkProvider>
       </QueryClientProvider>
