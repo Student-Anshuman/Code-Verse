@@ -19,7 +19,11 @@ const __dirname = path.resolve();
 app.use(express.json());
 
 // credentials:true meaning?? => server allows a browser to include cookies on request
-app.use(cors({ origin: [ENV.VERCEL_URL, ENV.CLIENT_URL], credentials: true }));
+// Explicitly list your Render frontend domain
+const allowedOrigins = [
+  ENV.RENDER_URL, ENV.CLIENT_URL // <-- Paste your exact frontend Render URL here
+];
+app.use(cors({ origin: [ENV.RENDER_URL, ENV.CLIENT_URL], credentials: true }));
 
 app.use(clerkMiddleware()); // this adds auth field to request object: req.auth()
 
