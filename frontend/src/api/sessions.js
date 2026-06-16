@@ -32,4 +32,12 @@ export const sessionApi = {
     const response = await axiosInstance.get(`/chat/token`);
     return response.data;
   },
+  getStreamToken: async (clerkToken) => {
+    const response = await axiosInstance.get(`/chat/token`, {
+      headers: {
+        Authorization: `Bearer ${clerkToken}`, // 🔑 Bridges the Clerk session to your Render backend
+      },
+    });
+    return response.data;
+  },
 };

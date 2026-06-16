@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { StreamChat } from "stream-chat";
 import toast from "react-hot-toast";
+import { useAuth } from "@clerk/clerk-react"; // 👈 1. Import useAuth from Clerk
 import { initializeStreamClient, disconnectStreamClient } from "../lib/stream";
 import { sessionApi } from "../api/sessions";
 
@@ -10,6 +11,8 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
   const [chatClient, setChatClient] = useState(null);
   const [channel, setChannel] = useState(null);
   const [isInitializingCall, setIsInitializingCall] = useState(true);
+
+  const { getToken } = useAuth(); // 👈 2. Destructure getToken hook
 
   useEffect(() => {
     let videoCall = null;
@@ -22,7 +25,13 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
       if (session.status === "completed") return;
 
       try {
-        const { token, userId, userName, userImage } = await sessionApi.getStreamToken();
+
+        // 👈 3. Fetch the secure Clerk Auth token
+        const clerkToken = await getToken();
+
+        // 👈 4. Pass the token directly to your api call
+        const { token, userId, userName, userImage } = await sessionApi.getStreamToken(clerkToken);
+        // const { token, userId, userName, userImage } = await sessionApi.getStreamToken();
 
         console.log("Stream response:", {
           token,
@@ -85,7 +94,7 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
         }
       })();
     };
-  }, [session, loadingSession, isHost, isParticipant]);
+  }, [session, loadingSession, isHost, isParticipant, getToken]);
 
   return {
     streamClient,
